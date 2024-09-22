@@ -13,6 +13,7 @@ const Login = () => {
   const [error, setError] = useState();
 
   const login = async (data) => {//handleSubmit is a keyword , dont make a function of that name
+    setError("");
     try {
       // Check if the email and password are correct, and attempt to create a session
       const session = await authService.login(data);
