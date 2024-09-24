@@ -13,4 +13,4 @@ import Signup from "./Signup";
 import Login from "./Login";
 import Select from "./Select";
 
-export{Header, Footer, Container, Logo, LogoutBtn, Button,Input, AuthLayout, RTE, PostForm}
+export{Header, Footer, Container, Logo, LogoutBtn, Button,Select,Input, AuthLayout,Login,Signup,PostCard, RTE, PostForm}
