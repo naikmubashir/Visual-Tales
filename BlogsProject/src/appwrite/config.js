@@ -20,16 +20,16 @@ export class Service{
             return await this.databases.createDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId,slug,{title, content,featuredImage,status,userId})
         }
         catch(err){
-            console.log(err)
+            console.log("Appwrite serive :: createPost :: error",err)
         }
         
     }
     async updatePost(slug,{title, content, featuredImage, status}){
         try{
-            return await this.databases.updateDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, slug, {title,content, featuredImage, status, user})
+            return await this.databases.updateDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, slug, {title,content, featuredImage, status})
         }
         catch(er){
-            console.log(err)
+            console.log("Appwrite serive :: updatePost :: error",err)
         }
     }
     async deletePost (slug){
@@ -38,7 +38,7 @@ export class Service{
              return true;
         }
         catch(err){
-            console.log(err);
+            console.log("Appwrite serive :: deleterPost :: error",err);
             return false;
         }
     }
@@ -49,17 +49,17 @@ export class Service{
             return await this.databases.getDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, slug)
         }
         catch(err){
-            console.log(err)
+            console.log("Appwrite serive :: getPost :: error", err)
         }
     }
 
     //get all active posts
-    async getPost(queries=[Query.equal('status','active')]){
+    async getPosts(queries=[Query.equal('status','active')]){
         try{
             return await this.databases.listDocuments(conf.appwriteDatabaseId, conf.appwriteCollectionId, queries)
         }
         catch(err){
-            console.log(err);
+            console.log("Appwrite serive :: getPosts :: error",err);
             return false;
         }
     }
@@ -71,7 +71,7 @@ export class Service{
             //this will return the ID
         }
         catch(err){
-            console.log(err);
+            console.log("Appwrite serive :: uploadFile :: error", err);
             return false;  
         }
     }
@@ -81,7 +81,7 @@ export class Service{
             return true;
         }
         catch(err){
-            console.log(err);
+            console.log("Appwrite serive :: deleteFile :: error", err);
             return false
         }
     }

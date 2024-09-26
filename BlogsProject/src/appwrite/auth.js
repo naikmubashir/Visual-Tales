@@ -16,7 +16,7 @@ export class AuthService{
             const userAccount=await this.account.create(ID.unique(), email,password,name);  //first param should be unique it
             if(userAccount){
                 //call another method ... to login automatically
-                this.login({email, password})
+                return this.login({email, password})
             }
             else {
                 return userAccount;
@@ -28,7 +28,7 @@ export class AuthService{
 
     async login({email, password}){
         try{
-           return await this.account.createEmailSession(email, password);
+           return await this.account.createEmailPasswordSession(email, password);
         }catch(err){
             throw err;
         }
@@ -46,7 +46,7 @@ export class AuthService{
         try{
             return await this.account.deleteSessions();
         }catch(err){
-            console.log(err)
+            console.log("Appwrite serive :: logout :: error",err)
         }
     }
 }

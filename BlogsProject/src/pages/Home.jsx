@@ -3,7 +3,7 @@ import appwriteService from "../appwrite/config";
 import { Container, PostCard } from "../components";
 
 const Home = () => {
-  const [posts, setPosts] = useState();
+  const [posts, setPosts] = useState([]);
   useEffect(() => {
     appwriteService.getPosts().then((postsData) => {
       if (postsData) {
@@ -19,7 +19,7 @@ const Home = () => {
           <div className="flex flex-wrap">
             <div className="p-2 w-full">
               <h1 className="text-2xl font-bold hover:text-gray-500">
-                Login to read posts
+                No Posts 
               </h1>
             </div>
           </div>
